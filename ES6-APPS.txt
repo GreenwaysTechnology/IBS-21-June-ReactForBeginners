@@ -1,0 +1,1504 @@
+Set up:
+
+1.node js
+2.vs code
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+ES 6 :
+
+What is java script?
+
+Programming language,invented for creating , modifying html docs inside web browser -dom 
+after 2008, javascript started in building distributed apps like java,c#...- after Node.js
+how to build even mobile apps. how to build iot apps....
+ - javascript is every where.
+
+ECMA SCRIPT.
+
+JAVA SCRIPT 1997 --1.0 -> es 1
+es 3 -1999
+es 4 -2006
+es 5 -2007
+es 6 -2012-2015. - ecma 2015
+es6 7,8,9....
+
+java script is object based,functional style,event driven programming language.
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+Learning path:
+
+es 6:
+
+1. java  script LANGUAGE fundamentals
+2. java script functional programming 
+3. Object based features and implementation
+4. DOM 
+5. NETWORK Progamming - ajax
+etc....
+
+Javascript program life cyle:
+
+1.source code
+   programm.js
+..................................
+javascript runtime/javascript virtual machine/javascript engine.
+
+2.compile code
+
+3.Execution
+.......................................
+javascript runtime :
+
+where you are running javascript code.
+
+1. embeded runtime.
+   the runtime embeded into another software.
+ browser
+v8-name of the runtime, inside chrome.
+
+2.standalone runtime.
+
+  node js -v8.
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+1. java  script LANGUAGE fundamentals
+
+-data types
+-variables
+-literals/values
+
+based on data types:
+
+PL Can be classified
+-strongly typed /static typed
+   -compiler checks the type of variable during compile time- eg c,c++,java....
+  int a ="hello"; compiler catches this error.
+-weak typed/dynamic typed
+
+  var a =10;
+  a="hello"
+ no compiler check only runtime check.
+
+JS weakly typed.
+
+variable,types, values.
+
+javascript is untyped/dyamic typed language.
+
+keyword variableName=value(literals)
+
+var | let | const | this | variablename=literal
+
+var-es5
+let and const -es6 to replace var.
+
+this - for object variables
+
+literals - values: based on literal only the type of variable is decided during runtime.
+
+types of literals
+
+1.string
+2.number
+3.boolean
+4.undefined
+5.nan
+6.infinity
+7.null
+8.function
+9.object
+
+types ;
+
+1.string
+2.number - number,NaN,ininfity
+3.boolean
+4.undefined
+5.function
+6.object - object,null
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+Strings:
+
+ "" , '',``(back tick option)
+
+
+`` - back tick notation:
+
+-string interpolation
+-multi line string literal
+//literals : strings;
+var firstName = "Subramanian";
+let lastName = 'Murugan';
+console.log(" Name " + firstName + " " + lastName);
+console.log(" Name ", firstName, " ", lastName);
+//String interpolation : es 6 ;  String template literal
+console.log(`Name ${firstName} ${lastName}`);
+//multi line strings:
+let title = 'IBM'
+let doc = "<html>" +
+    "<head>" +
+    "<title>" + title + "</title>" +
+    "</head>" +
+    "<body>" +
+    "<h1>Hello</h1>" +
+    "</body>";
+console.log(doc)
+let docOne = `<html>
+           <head>
+            <title>${title}</title>
+            </head>
+          <body>
+            <h1>Hello</h1>
+          </body>
+        `;
+console.log(docOne)
+
+numbers
+ -64 bit size ; aka double.
+
+let salary = 10000;
+console.log(`Salary ${salary}`);
+let totalSalary = salary * 100
+console.log(`Total salary ${totalSalary}`);
+
+booleans : true or false
+
+let isActive = true; //false
+console.log(`isActive ${isActive}`);
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+undefined:
+.........
+//////////////////////////////////////////////////////////////////////////////
+//undefined; if variable declared but not initalized with any valid literals
+let cost;
+console.log(`cost ${cost}`);
+
+
+
+NAN:
+
+//NaN - not a number; it is numerical error code.during numerical computation, js engine
+//may throw error - NaN ; 
+//NaN is not valid value, it is error , need to be fixed if you get.
+
+when you will get NaN.
+
+1.if you do compuation against undefined variables.
+2. when you do type conversion ; string to number.
+	type conversion; implict and explict.  String to Number
+
+
+let cost; //undefined
+let totalCost = cost * 100;
+console.log(`Total Cost ${totalCost}`);
+
+//type conversion
+//qty is now string because "" but value is number
+let qty = "1000"; // string will be converted into number first 
+//implicit conversion; before computation, variable is converted into number...
+let totalQty = qty * 100;
+console.log(`Total Qty ${totalQty}`);
+//explicit conversion
+totalQty = parseFloat(qty) * 100;
+console.log(`Total Qty ${totalQty}`);
+
+//NaN and type conversion
+let count="$10";
+let totalCount = count * 12;
+console.log(`Total Count ${totalCount}`);
+
+Infinity:
+
+let avg = 100/ 0;
+console.log(`Avg ${avg}`);
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+Advanced boolean :
+...................
+
+What can be true or false?
+
+decision making : if..else
+
+in javascript is every thing is true execept the following values 
+
+Falsy values
+
+ * 
+ *  1.boolean false
+ *  2.Empty string "" ,''
+ *  3.0
+ *  4.undefined
+ *  5.NaN
+ *  6.null
+ */
+let isActive = true;
+
+if (isActive) {
+    console.log('Active')
+} else {
+    console.log('inactive')
+}
+
+let firstName="subramanian"
+if (firstName) {
+    console.log('Name is Present')
+} else {
+    console.log('Name is not  Present')
+}
+
+let start = 10;
+if (start) {
+    console.log('start')
+} else {
+    console.log('no start')
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+//knowing type of an variable/literal; 
+//typeof operator returns typeof literal/variable
+
+let a = 10;
+console.log(`a type is ${typeof a}`);
+a = 'Hello';
+console.log(`a type is ${typeof a}`);
+a = true;
+console.log(`a type is ${typeof a}`);
+a = undefined;
+console.log(`a type is ${typeof a}`);
+a = 10 * undefined; //NaN --->number type
+console.log(`a type is ${typeof a}`);
+a = 100 / 0;
+console.log(`a type is ${typeof a}`);
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+operators:
+//operators;
+//equal operators 
+//  ==, === ,!=,!==
+
+let a = 100;
+let b = 100;
+if (a == b) {
+    console.log('equal')
+} else {
+    console.log('not equal')
+}
+
+
+//value is 100 but type is number
+let x = "100";
+let y = 100;
+if (x === y) {
+    console.log('equal')
+} else {
+    console.log('not equal')
+}
+
+/**
+ * == compares only value
+ * === compares value + type ->recommended operator.
+ */
+
+//let and var are same
+//let vs const
+
+let a = 10;
+console.log(`a Value is ${a}`);
+//re initialize 
+a = 20;
+console.log(`a Value is ${a}`);
+
+//const ; read only; cant reinitalize
+
+const b =10;
+console.log(` b Value is ${b}`);
+b=90;
+console.log(` b Value is ${b}`);
+////////////////////////////////////////&&&&&&&&&&&&&&&&&&&//////////////////////////////////
+
+Functional Programming: - callbacks,arrow functions,async programming..
+......................................................................
+
+
+function sayHello() {
+    //function body
+    console.log('Hello')
+}
+sayHello()
+//function with some logic
+function validate() {
+    let name = 'ram';
+    let password = 'ram';
+    let response = (name === 'ram') && (password === 'ram') ? 'valid' : 'invalid'
+    console.log(response);
+}
+validate();
+
+
+Function args,parameters:
+..........................
+//message is variable : arg variable
+function sayHello(message) {
+    console.log(`Message is ${message}`)
+}
+
+//'Hello' is parameter
+sayHello('Hello');
+sayHello(100);
+sayHello();//undefined
+
+//message is variable : arg variable
+function sayHello(message) {
+    console.log(`Message is ${message}`)
+}
+
+//'Hello' is parameter
+sayHello('Hello');
+sayHello(100);
+sayHello();//undefined
+
+//default args : ES 6 features
+function multiply(a=0,b=0){
+    console.log(`a=${a} b=${b}`)
+    let result = a * b;
+    console.log(`Multiplication ${result}`)
+}
+multiply(10,10)
+multiply()
+
+//variable args; var args : es 5
+// function log(){
+//    //arguments : built in variable inside function which collects all parameters
+//  console.log(arguments)
+// }
+//es 6 var args : ...rest operator
+function log(...args){
+    //arguments : built in variable inside function which collects all parameters
+  console.log(args)
+ }
+
+log('app')
+log('app', 'error')
+log('app', 'error', 'in myfile.txt')
+///
+
+Function returns:
+function getA() {
+    return 10; // return hardcoded value
+}
+let value = getA()
+console.log(value);
+console.log(getA())
+
+function getB() {
+    let b = 10;
+    return b; // return variable
+}
+console.log(getB());
+
+function calculate(a = 1, b = 1) {
+    return a * b; // return expression- computed value
+}
+console.log(calculate(4, 5))
+
+function isValid() {
+    return; // undefined
+}
+console.log(isValid() ? 'valid' : 'invalid').
+...........................................................................................
+///////////////////////////////////////////////////////////////////////////////////////////
+
+JavaScript is functional programming :
+
+->function is value/literal like other values
+
+ let a =10;
+ a - variable
+ 10 -literal/value - numerical value.
+
+any value can be passed around -  as parameter, can return
+
+similar to 10 function is value.
+
+ - we can store function inside variable
+ - we can pass function as value to another function
+ - we can return function from another function.
+
+
+
+ "function declaration; function can be assigned to a variable.
+  once if you assign function to a variable , that variable can be used
+  to call /invoke that function."
+
+//how to declare function and stores into a variable
+
+//way-1
+function sayHello(name = 'foo') {
+    console.log('hello', name);
+    return 'welcome'
+}
+sayHello('subramanian')
+//store the function into a variable.
+const hello = sayHello;
+hello('ram');
+
+//way 2
+//anonomous function ; funciton without name
+const greeter = function(message='bar') {
+    console.log(`${message}`)
+    return 'bar foo'
+};
+greeter('Hai')
+
+
+function as parameter:
+//function as parameter
+
+//a =10
+//b =20
+//a =x
+function add(a = 10, b = 20) {
+    return a + b;
+}
+
+let x = 10;
+let y = 90;
+console.log(add(x, y)); //here we pass variables
+console.log(add(10, 20)); // here we pass numbers - hardcoded values
+
+//function as parameter
+//greetMe = function....
+function sayGreet(greetMe) {
+   let res= greetMe('Hello');
+   console.log(res);
+}
+const hello = function (message = 'default Message') {
+    console.log(message);
+    return 'ok!';
+};
+//function as parameter
+sayGreet(hello);
+//sayGreet();
+sayGreet(function (message = 'default Message') {
+    console.log(message);
+    return 'ok!'
+});
+////////////////////////////////////////////////////////////////////////////////
+
+// string,string,fn,fn
+function login(username, password, success, failure) {
+    if (username === 'admin' && password === 'admin') {
+        success('Login success')
+    } else {
+        failure('Login failed')
+    }
+}
+login('admin','admin',function(status){
+    console.log(status);
+},function(err){
+    console.log(err);
+});
+login('foo','foo',function(status){
+    console.log(status);
+},function(err){
+    console.log(err);
+});
+////////////////////////////////////////////////////////////////////////////////////////
+
+function as return value:
+
+
+function getA() {
+    return 10;
+}
+let res = getA();
+console.log(res);
+
+// function counter() {
+//     function inc() {
+//         return 10 + 1;
+//     }
+//     return inc;
+// }
+// function counter() {
+//     return function inc() {
+//         return 10 + 1;
+//     }
+// }
+function counter() {
+    return function (a = 1) {
+        return a + 1;
+    }
+}
+let func = counter();
+console.log(func, func(100));
+////////////////////////////////////////////////////////////////////////////////
+//nested ..
+//curry function
+function func1(a1) {
+    return function func2(a2) {
+        return function func3(a3) {
+            return function func4(a4) {
+                return `final ${a1} ${a2} ${a3} ${a4}`;
+            }
+        }
+    }
+}
+// let f1 =func1();
+// let f2 =f1();
+const result = func1('a1')('a2')('a3')('a4');
+console.log(result);
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+Arrow functions:
+...............
+
+1.arrow functions are simplified version of function literal 
+2.arrow function has special feature related to "this" keyword.
+
+//arrow functions
+//es 5 function literal
+let hello = function () {
+    console.log('hello')
+};
+hello();
+//replace the above one with arrow syntax.
+//remove function keyword
+hello = () => {
+    console.log('hello arrow ')
+};
+hello();
+//function body has only one line of code: remove {}
+hello = () => console.log('hello arrow with one line of code')
+hello();
+//args and params : multi parameter with default value
+
+let add = (a = 1, b = 2) => {
+    let r = a + b;
+    console.log(r);
+};
+add(1, 3);
+//single parameter without default value:remove ()
+let saySomething = message => console.log(message);
+saySomething('hello')
+////////////////////////////////////////////////////////////////////////////////
+//how to return value?
+let multiply = () => {
+    return 10 * 10;
+};
+console.log(multiply());
+//if function has only return statment : remove {} and return statement
+multiply = () => 10 * 10;
+console.log(multiply());
+
+multiply = (a = 10, b = 30) => a * b;
+console.log(multiply());
+//single parameter no default value, and return the same
+let isActive = active => active;
+console.log(isActive('active'));
+///////////////////////////////////////////////////////////////////////////////
+//funciton as parameter and arrow.
+
+const login = (username, password, success, failure) => {
+    if (username === 'admin' && password === 'admin') {
+        success('Login success')
+    } else {
+        failure('Login failed')
+    }
+}
+
+login('admin', 'admin', () => console.log(`Login success`), () =>
+    console.log(`Login failed`)
+);
+//////////////////////////////////////////////////////////////////////////////
+//how to return function ; arrow;
+
+const counter = () => (a = 1) => a + 1;
+console.log(counter()());
+//////////////////////////////////////////////////////////////////////////////////////////
+
+Object oriented Programming:
+
+Object Oriented Principles:
+...........................
+
+1.Abstraction
+2.Encapsulation
+3.Hierarchy
+4.Typing
+5.Modularity
+----------------------
+6.Concurrency
+7.Persistency
+
+if any pl follows the above 5 principles , are called Object oriented Programming language
+if any pl does not follow any 1 principle or paritally all principles , those languages
+are called "Object based Programming language".
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+Java script and Objects:
+
+1.create object
+  if you want to create object, you need template.
+
+  constructor:
+    -function is template.
+    -ES 6 introduced class syntax but still internally every class is function.
+   literal syntax.
+
+
+Object:
+  state and methods
+
+how to declare state and methods?
+ using "this" keyword.
+
+function Employee() {
+    //declare instance variables and methods
+    this.id = 1;
+    this.name = 'ram';
+    //methods
+    this.calculateSalary = function () {
+        return 1000;
+    }
+}
+//create object
+//emp is variable- reference variable
+//new is keyword to instruct for memory allocation
+//Employee() - constructor call.
+const emp = new Employee();
+
+//access object properties
+console.log(`id ${emp.id}`)
+console.log(`Name ${emp.name}`)
+console.log(`Salary ${emp.calculateSalary()}`)
+
+//ES 6 class
+
+class Customer {
+    id = 1;
+    name = "Subramaian";
+    constructor() {
+        console.log('customer init....')
+    }
+    //methods
+    calculateInvoice() {
+        return 100;
+    }
+}
+const cust = new Customer();
+console.log(`id ${cust.id}`)
+console.log(`Name ${cust.name}`)
+console.log(`Salary ${cust.calculateInvoice()}`)
+
+//literal patterns
+let product = {
+    id: 1,
+    name: 'phone',
+    // getQty: function () {
+    //     return 100;
+    // }
+    getQty: () => {
+        return 100;
+    },
+    calculateInvoice() {
+        return 1000;
+    }
+};
+console.log(`id ${product.id}`)
+console.log(`Name ${product.name}`)
+console.log(`Qty ${product.getQty()}`)
+console.log(`Invoice ${product.calculateInvoice()}`)
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+how to initalize the state
+1.//hard coded
+2.//after object creation
+3.//during constructor call.
+
+
+
+
+function Employee(id = 1, name = 'ram') {
+    //declare instance variables and methods
+    this.id = id;
+    this.name = name;
+    //methods
+    this.calculateSalary = function () {
+        return 1000;
+    }
+}
+let emp = new Employee();
+console.log(`id ${emp.id}`)
+console.log(`Name ${emp.name}`)
+console.log(`Salary ${emp.calculateSalary()}`)
+//constructor parameter
+emp = new Employee(23, 'John')
+console.log(`id ${emp.id}`)
+console.log(`Name ${emp.name}`)
+
+class Customer {
+    //declare instance variables and methods
+   constructor(id = 1, name = 'ram') {
+        this.id = id;
+        this.name = name;
+    }
+    calculateInvoice() {
+        return 1000;
+    }
+}
+let cust = new Customer(23, 'Miller')
+console.log(`id ${cust.id}`)
+console.log(`Name ${cust.name}`)
+////////////////////////////////////////////////////////////////////////////////////////////
+Object relationship:
+
+1.HAS-A
+2.IS-A - inheritance
+
+
+HAS-A:
+.....
+class Product {
+    constructor(id = 1, name = 'phone') {
+        this.id = id;
+        this.name = name;
+    }
+}
+class Order {
+    constructor(orderId = 'A001', product = new Product()) {
+        this.orderId = orderId
+        //has-a
+        this.product = product;
+
+    }
+}
+let product = new Product();
+let order = new Order();
+console.log(order)
+//
+order = new Order('A002', new Product(1, 'Books'))
+console.log(order)
+////////////////////////////////////////////////////////////////////////////////////////////
+IS -A:
+......
+inheritance :
+
+1.using functions
+2.using class
+3.using literal object
+
+
+class Account {
+    constructor(id = 'A00010000') {
+        this.id = id;
+        console.log('account')
+    }
+    deposit() {
+        return 1.5;
+    }
+}
+class SavingsAccount extends Account {
+
+    constructor(id) {
+        super(id);//call base class constructor
+        console.log('savings account')
+    }
+    //overriding 
+    deposit() {
+        console.log('overriden method')
+        return 4.5 * super.deposit();
+    }
+
+}
+let sb = new SavingsAccount('B00013444');
+console.log(`Id ${sb.id}  ${sb.deposit()}`)
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+Object De Structuring:
+.....................
+//Extract object properties without using reference variables.
+
+// function printEmployee(employee) {
+//     console.log(`id : ${employee.id}`)
+//     console.log(`name : ${employee.name}`)
+//     console.log(`City : ${employee.address.city}`)
+// }
+//object destructuring syntax
+// function printEmployee(employee) {
+//     const { id, name, address } = employee;
+//     console.log(`id : ${id}`)
+//     console.log(`name : ${name}`)
+//     console.log(`City : ${address.city}`)
+// }
+// function printEmployee({ id, name, address }) {
+//   //  const { id, name, address } = employee;
+//     console.log(`id : ${id}`)
+//     console.log(`name : ${name}`)
+//     console.log(`City : ${address.city}`)
+// }
+// function printEmployee({ id, name, address: { city } }) {
+//     //  const { id, name, address } = employee;
+//     console.log(`id : ${id}`)
+//     console.log(`name : ${name}`)
+//     console.log(`City : ${city}`)
+// }
+const printEmployee = ({ id, name, address: { city } }) => {
+    //  const { id, name, address } = employee;
+    console.log(`id : ${id}`)
+    console.log(`name : ${name}`)
+    console.log(`City : ${city}`)
+};
+
+printEmployee({ id: 1, name: 'Subramanian', address: { city: 'Coimbatore' } });
+
+class Customer {
+    //declare instance variables and methods
+    constructor(id = 1, name = 'ram') {
+        this.id = id;
+        this.name = name;
+    }
+    calculateInvoice() {
+        return 1000;
+    }
+}
+let { id, name, calculateInvoice } = new Customer();
+console.log(`id ${id}`)
+console.log(`Name ${name}`)
+console.log(`Salary ${calculateInvoice()}`)
+///////////////////////////////////////////////////////////////////////////////
+
+//function returns object and how to destructure it.
+
+// function getStock() {
+//     return {
+//         id: 1,
+//         symbol: 'GOOGLE',
+//         qty: 1000,
+//         price: 10000
+//     };
+// }
+//dynamic object values
+// function getStock(id, symbol, qty, price) {
+//     return {
+//         id: id,
+//         symbol: symbol,
+//         qty: qty,
+//         price: price
+//     };
+// }
+//object destrucing
+// function getStock(id, symbol, qty, price) {
+//     //if left : right variables are equal, make it one
+//     return {
+//         id,
+//         symbol,
+//         qty,
+//         price
+//     };
+// }
+// const getStock = (id = 1, symbol = 'default', qty = 0, price = 0) => {
+//     //if left : right variables are equal, make it one
+//     return {
+//         id,
+//         symbol,
+//         qty,
+//         price
+//     };
+// }
+const getStock = (id = 1, symbol = 'default', qty = 0, price = 0) => ({
+    id,
+    symbol,
+    qty,
+    price
+});
+
+console.log(getStock(2, 'Microsoft', 450, 8000));
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+Async programming:
+
+Styles of async programming:
+
+1.callback style
+2.promises
+3.async await
+
+What is async/nonblocking?
+ javascript engine is single threaded, meaning we cant create more threads to perform
+multi tasking.
+ js uses different threading model - worker thread model.
+ any blocking operations- such as networking,long running tasking, to be scheduled outside
+js engine mostly on os kernals, return result once it completed via event notification. main thread process events and retrive results
+
+How to implement async programming?
+
+1.js provides high level apis through which only we can schdule jobs.
+  apis -  timer,ajax(XMLHttpRequest),websocket,dom events....
+2.js provides to handle processed result- function -callback function/handler function.
+
+ eg:
+  user asks some data from network
+
+ user-------browser---js engine--main thread----submit job to os kernal---|thread is not blocked------process is going on --once process is finished in the kernal with data---os send event(signal for data)----------main thread receives event and assigns to a function (callback function) to handle processed data.
+
+steps:
+
+1.you have to use high level api - settimout
+2.you have to cb function - function as param.
+
+
+callback style:
+
+function sayHello(){
+    console.log('hello')
+}
+function delay(callback){
+  setTimeout(callback,5000,'hello!!!')
+}
+delay(function(data){
+    console.log('delay',data)
+});
+sayHello();
+////////////////////////////////////////////////////////////////////////////////////////////
+complex async programming:
+..........................
+
+const getUser = (resolve, reject) => {
+    let user = { id: 1, name: 'ram' };
+    //user=null;
+    if (user) {
+        setTimeout(resolve, 1000, user);
+    } else {
+        setTimeout(reject, 1000, { message: 'No user found' });
+    }
+};
+getUser(user => console.log(user), err => console.log(err));
+
+callback nesting :
+  
+  The output of one callback will be input to another callback.
+
+
+const getUser = (resolve, reject) => {
+    let user = { id: 1, name: 'ram' };
+    //user=null;
+    if (user) {
+        setTimeout(resolve, 1000, user);
+    } else {
+        setTimeout(reject, 1000, { message: 'No user found' });
+    }
+};
+
+const login = (user, resolve, reject) => {
+    if (user.name === 'ram') {
+        setTimeout(resolve, 1000, 'login success');
+    } else {
+        setTimeout(reject, 1000, { message: 'login failed' });
+    }
+}
+//show page  based on login
+const showPage = (status, resolve, reject) => {
+    if (status === 'login success') {
+        setTimeout(resolve, 1000, 'You are registered User');
+    } else {
+        setTimeout(reject, 1000, { message: 'You are guest' });
+    }
+}
+
+
+getUser(user => {
+    console.log('user is called');
+    login(user, status => {
+        console.log('login is called');
+        showPage(status, rpage => {
+            console.log('show page is called');
+            console.log(rpage)
+        }, gpage => console.log(gpage));
+    }, err => console.log(err))
+}, err => console.log(err));
+
+
+callback hell:
+Questions:
+
+1.Whether this is able to understand quickly
+2.Whether this code is able to debug
+3.Whehter this code is scalable?
+4.whether this code is maintaiable?
+
+  "No" : This is what we call as "Callback hell".
+
+fs.readdir(source, function (err, files) {
+  if (err) {
+    console.log('Error finding files: ' + err)
+  } else {
+    files.forEach(function (filename, fileIndex) {
+      console.log(filename)
+      gm(source + filename).size(function (err, values) {
+        if (err) {
+          console.log('Error identifying file size: ' + err)
+        } else {
+          console.log(filename + ' : ' + values)
+          aspect = (values.width / values.height)
+          widths.forEach(function (width, widthIndex) {
+            height = Math.round(width / aspect)
+            console.log('resizing ' + filename + 'to ' + height + 'x' + height)
+            this.resize(width, height).write(dest + 'w' + width + '_' + filename, function(err) {
+              if (err) console.log('Error writing file: ' + err)
+            })
+          }.bind(this))
+        }
+      })
+    })
+  }
+})
+
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+///////////////////////////////////////////////////////////////////////////////////////////
+
+How to write better callback programming /async/non blocking ? or How to avoid callback hell?
+
+
+In 2005, JQUERY team started with working complex callback patterns, they found callback hell problem.
+
+They proposed a  Design pattern to write better callback programming(Async) programming.
+
+  "Promise".
+
+Promise is design pattern which hides complexity of callback patterns
+
+
+SInce Promise is design pattern, many people have implemented Promise design pattern.
+
+1.JQuery -first promise implementation
+2.many libs and frameworks
+
+2012 E6 Committe introduced promise design pattern  as  "Promise" Object  in javascript.
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+Promise Object:
+..............
+ 
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+
+Promises and non blocking,async and callback hell issues:
+.........................................................
+
+features of Promise Object:
+
+1.Promise by deafult is Async. Which implements timer api with 0 ms .
+
+Promise can be used with any async callback based  implementations.
+
+Objective:
+
+ To remove callbacks in async/non blocking code. write cleaner async programming.
+ To remove complex callback chaining code.
+
+
+Promise Implemenation:
+
+1. Create Promise Object from Promise contructor
+2. Create Promise object from factory apis 
+
+Promise object methods:
+1.then - success
+2.catch - errors
+3.finally - clean up
+factory api to create Promise object
+4.resolve
+5.reject
+.......................................
+6.all
+7.race
+
+
+//promise object creation ; using factory api
+
+function sayHello() {
+    return 'Hello'
+}
+//success only
+function delay() {
+    return Promise.resolve('delay')
+}
+delay().then(res => console.log(res))
+console.log(sayHello())
+
+
+//failure only
+function delayWithError() {
+    return Promise.reject('delay with reject')
+}
+delayWithError().catch(err => console.log(err))
+
+//success and failure
+function delayWithBoth() {
+    let message = 'hello';
+    if (message) {
+        return Promise.resolve(message)
+    } else {
+        return Promise.reject('something went wrong')
+    }
+}
+delayWithBoth()
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+//////////////////////////////////////////////////////////////////////////////
+
+//promise object using constructors.
+// if you want to convert any existing callbacks into promises
+function getUser() {
+    let user = { id: 1, name: 'ram' };
+    if (user) {
+        return new Promise((resolve, reject) => {
+            setTimeout(resolve, 5000, user);
+        });
+    } else {
+        return new Promise((resolve, reject) => {
+            setTimeout(resolve, 5000, { message: 'User not found' });
+        });
+    }
+}
+//
+getUser()
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+
+
+
+how to write nested callbacks using promises
+
+
+
+const getUser = () => {
+    let user = { id: 1, name: 'ram' };
+    //user=null;
+    let err = {
+        message: 'User not found'
+    }
+    if (user) {
+        return new Promise((resolve, reject) => {
+            setTimeout(resolve, 1000, user)
+        });
+    } else {
+        return new Promise((resolve, reject) => {
+            setTimeout(reject, 1000, err)
+        });
+    }
+};
+
+const login = user => {
+    let status = "Login success"
+    let err = "Login failed"
+    if (user.name === 'ram') {
+        return new Promise((resolve, reject) => {
+            setTimeout(resolve, 1000, status)
+        });
+    } else {
+        return new Promise((resolve, reject) => {
+            setTimeout(reject, 1000, err)
+        });
+    }
+}
+//show page  based on login
+const showPage = status => {
+    if (status === 'login success') {
+        return new Promise((resolve, reject) => {
+            setTimeout(resolve, 1000, { message: 'You are registered user' });
+        });
+    } else {
+        return new Promise((resolve, reject) => {
+            setTimeout(reject, 1000, { message: 'You are guest' });
+        });
+    }
+}
+
+// getUser(user => {
+//     console.log('user is called');
+//     login(user, status => {
+//         console.log('login is called');
+//         showPage(status, rpage => {
+//             console.log('show page is called');
+//             console.log(rpage)
+//         }, gpage => console.log(gpage));
+//     }, err => console.log(err))
+// }, err => console.log(err));
+getUser()
+    .then(user => {
+        console.log('user is called');
+        login(user).then(status => {
+            console.log('login is called');
+            showPage(status)
+                .then(page => {
+                    console.log('show page is called');
+                    console.log(page)
+                })
+                .catch(err => console.log(err))
+        }).catch(err => console.log(err))
+    })
+    .catch(err => console.log(err));
+
+getUser()
+    .then(user => {
+        console.log('Get user is called', user)
+        return login(user)
+    })
+    .then(status => {
+        console.log('login is called', status);
+        return showPage(status);
+    })
+    .then(page => {
+        console.log('show page is called', page)
+    })
+    .catch(err => {
+        console.log(err);
+    });
+
+getUser()
+    .then(user => login(user))
+    .then(status => showPage(status))
+    .then(page => console.log('show page is called', page))
+    .catch(err => {
+        console.log(err);
+    });
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+async and await ; es 7 keywords
+
+
+Promise Hell: Promise has limitions;
+......................
+
+1.Promise is still  complex when you start scalling complex async operations.
+
+2.Which is not readable ,which uses lot of then, catch blocks
+
+In order to write even simple complex async work flows ES 7 introduced
+a concept called "async await" keywords
+
+ It is simplest pattern of Promises.
+ It is promise driven only.
+
+         "Sync style of Async Code" 
+
+async key must be used with function declaration.
+await is used to pause async calls
+
+
+async ;
+
+-used in front of function declaration ; those functions are called async function.
+
+async is keyword must be used infront of function- async functions
+
+
+async function returns Promise Object ---promise.resolve
+
+//async function 
+
+async function getValue(){
+    return 10; // Promise.resolve(10);
+}
+console.log(getValue())
+getValue().then(value=>console.log(value));
+
+async function getValueWithPromise(){
+    return Promise.reject('errr');
+}
+
+//async..await
+const getUser = () => {
+    let user = { id: 1, name: 'ram' };
+    //user=null;
+    let err = {
+        message: 'User not found'
+    }
+    if (user) {
+        return new Promise((resolve, reject) => {
+            setTimeout(resolve, 1000, user)
+        });
+    } else {
+        return new Promise((resolve, reject) => {
+            setTimeout(reject, 1000, err)
+        });
+    }
+};
+
+const login = user => {
+    let status = "Login success"
+    let err = "Login failed"
+    if (user.name === 'ram') {
+        return new Promise((resolve, reject) => {
+            setTimeout(resolve, 1000, status)
+        });
+    } else {
+        return new Promise((resolve, reject) => {
+            setTimeout(reject, 1000, err)
+        });
+    }
+}
+//show page  based on login
+const showPage = status => {
+    if (status === 'Login success') {
+        return new Promise((resolve, reject) => {
+            setTimeout(resolve, 1000, { message: 'You are registered user' });
+        });
+    } else {
+        return new Promise((resolve, reject) => {
+            setTimeout(reject, 1000, { message: 'You are guest' });
+        });
+    }
+}
+
+async function main() {
+    // getUser()
+    // .then(res => console.log(res))
+    // .catch(err => console.log(err))
+    try {
+        const user = await getUser();
+        const status = await login(user);
+        const page = await showPage(status);
+        console.log(user, status, page);
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+main();
+////////////////////////////////////////////////////////////////////////////////////////////
+Javascript modularity:
+
+
+Modularity:
+..........
+
+In java Modularity , is presented via "Packages"
+
+Package organize the code  logically.
+
+Customer.java
+
+package com.ibm.cms
+
+public class Customer{}
+
+Java organizes code folders and files Physically.
+
+d:/javaapps/src/
+    com/ibm/cms/Customer.java
+
+
+What about javascript Modularity?
+
+ Javascript is file based modularity physically
+ but logically there is no such modularity at language level.
+
+ collection of variable declarations and function.
+
+Once js started growing in large scale, dev struck to organize code.
+
+2000, Smart developers started thinking about how to modualrize js code.
+ 
+
+Module design patterns came.
+
+1.Namespace design pattern : 2000 : jquery
+2.AMD -Async Module Defintion : dojo
+---------------------------------------------------------
+3.CJS - Common JS =  namespace + amd
+4.ES 6 Module design pattern  = amd + cjs
+------------------------------------------------------------
+5.System = AMD = CJS + ES 6
+6.UMD = NAMESPACE + AMD + CJS = ES 6
+
+
+only two design patterns are used in development
+
+1.CJS - Common JS =  namespace + amd
+2.ES 6 Module design pattern  = amd + cjs
+
+
+ES 6 modules:
+.............
+
+1.how link files
+2.how to share code among files
+
+code- variables,functions,classes,object
+
+ES 6 module design pattern keywords
+
+for code sharing
+1.export
+2.export default
+
+//link files and get data.
+3.import
+
+export is used to share any type of code to another files
+
+export const variable=value
+
+import is used link and get shared code
+
+import {} from './filename';
+
+if run the code, inside browser it wont run, browser dont have linker or loader to link files.
+
+how to add loader or linker to webbrowser?
+ third parties are providing this.
+
+webpack :
+  it is build tool provides loaders and linkers to run any modules on browser.
+
+steps:
+
+1.npm install webpack webpack-cli --save-dev
+
+2.create file
+const path = require('path');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js'
+  }
+};
+3.add scripts
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+
+4.build  
+  npm run build
+
+5.test in browser
+/////////////////////////////////&&&&&&&&&&&&&&&&&///////////////////////////////////////////
+
+
+
+
+
+
+
+
+
