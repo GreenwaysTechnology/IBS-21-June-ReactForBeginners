@@ -1,0 +1,233 @@
+
+ <div class >
+ <div style >
+
+HTML ATTRIBUTES
+class 
+style
+
+ <div class="nav nav-menu" >
+ <div style="font-size:16;font-style:bold">
+
+
+We cant use html attributes inside jsx directly. jsx uses its own syntax
+
+
+ <div className="" >
+
+
+
+How to attach data to component.
+
+data - numbers,strings,booleans,objects,arrays
+
+
+
+
+Fragement -  is invisble container component. 
+
+Fragements are only for compiler 
+
+Props - Property Pattern
+
+
+React dev tools
+
+array methods:
+
+- for
+ -forEach method
+........................
+
+map
+filter
+find
+
+
+property constriants  property rules
+
+
+can be props
+
+-data 
+  string,number,boolean,arrays,objects
+-function as prop
+-dom element/ or any component can be prop
+
+
+User interaction - Event handling
+
+How to update data dynamically - dynamic ui
+
+
+
+
+
+render ---- to prepare ui -- to create objects --- to object tree
+
+
+render ---- is called two places
+
+ first time when ui renderd
+
+ second time when ui is updated with new state/value.
+
+setState(updater, [callback])
+
+updater- 
+ function(previousstate, props) {
+
+     return {
+        value: previousstate.value + 1
+     } 
+ }
+
+
+(state, props) => stateChange
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+functional programming principles:
+
+1.pure function
+
+ 1..1function which takes input returns the same without mutation,without side effects
+
+
+This is pure function
+
+ function   myFun(x){
+
+    return x;
+ }
+
+ myFun(10)
+
+This is not pure function
+
+ function   myFun(x){
+
+    return x *10;
+ }
+
+ function  Display(props){
+
+    return <h1>{props.title} </ h1>
+ }
+
+ <Display title="something"/>
+
+1.2. if function takes arg, but i want to mutate(change), how to do that, but it should be
+pure.
+ Apply principle called "immutablity" ; dont change original memory address return new object
+/data every time.
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+Components Types
+
+1.Container Component - 
+ - WHich has data and logic 
+ - should not have ui
+2.Presentational Component
+ -Which should have ui 
+
+
+ Container
+     state
+     |
+      as prop : state as prop /dynamic prop
+    Presentational
+
+
+Hooks
+
+useState:
+
+ - remove setState method
+ - no need of classes
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+component life cyles and how to work with async calls likes,ajax calls.
+
+component life cycle methods can be represented inside class components only.
+via functions also possible via hooks.
+
+cm
+
+ - mount
+    
+ -update
+ -unmount
+
+
+component didMount is used for having async calls - timer,ajax...
+
+
+conditional rendering:
+
+ i want to show progress bar 
+
+    if data not avaible show progressbar , available show data.
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+Data and logic
+
+View
+
+as of now react handles data,logic + view => it is not recommened.
+
+We need to isloate state into separate layer : Redux
+
+Redux is lib to manage user interface biz state.
+
+////////////////////////////////////////////////////////////////////////
+
+Redux core concepts
+
+1.store
+ - object , having all app state, entry and exit point of redux
+
+2.reducer
+   -pure function , which returns immutable data
+
+3.action
+   -object , sent by react to instruct redux what todo -request
+
+4.dispatcher - dispatch
+   -transporter , transports request to redux engine
+//////////////////////////////////////////////////////////////////////////////////////////
+
+Single Page web apps - router
+
+react-router-dom
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
